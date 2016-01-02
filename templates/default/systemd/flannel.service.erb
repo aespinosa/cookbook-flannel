@@ -1,0 +1,9 @@
+[Unit]
+Description=Flannel software-defined networking service
+Documentation=https://coreos.com/flannel
+After=network.target
+
+[Service]
+Type=notify
+ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config <%= @config.to_json %>
+ExecStart=/usr/sbin/flanneld

@@ -21,6 +21,33 @@ module FlannelCookbook
 
     end
 
+    action :start do
+      service_file = template "/etc/systemd/system/#{flannel_name}.service" do
+        source 'systemd/flannel.service.erb'
+        owner 'root'
+        group 'root'
+        cookbook 'flannel'
+
+        variables config: { 'Network' => '10.0.0.0/8' }
+
+        action :create
+
+        notifies :run, 'execute[systemctl daemon-reload]', :immediately
+      end
+
+      execute 'systemctl daemon-reload' do
+        command '/bin/systemctl daemon-reload'
+        action :nothing
+      end
+
+      service flannel_name do
+        provider Chef::Provider::Service::Systemd
+        supports status: true
+        action %w(enable start)
+        only_if { ::File.exist? service_file.path }
+      end
+    end
+
     def file_cache_path
       Chef::Config[:file_cache_path]
     end
@@ -28,6 +55,9 @@ module FlannelCookbook
     def tarball_path
       "#{file_cache_path}/flannel-0.5.5-linux-amd64.tar.gz"
     end
-  end
 
+    def flannel_name
+      "flannel-#{name}"
+    end
+  end
 end
