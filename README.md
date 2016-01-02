@@ -3,6 +3,33 @@
 This is a library cookbook that provides resources for setting up
 [flannel](https://github.com/coreos/flannel) instances.
 
+## Requirements
+
+* Chef 12.5.0 or higher.
+* Network accessible web server hosting the flannel binaries.
+
+## Platform Support
+
+Tested on the following platforms with test-kitchen:
+
+* debian-8.2
+
+## Usage
+
+* Add `depends 'flannel', '~> 0.1.0'` to your cookbook's `metadata.rb`.
+* Use the resources shipped in this cookbook.
+
+# Custom Resources
+
+* `flannel_service`
+
+## flannel_service
+
+Downloads pre-compiled Go binaries of flanneld onto disk.
+
+* The `:create` action performs the installation of the binary.
+
+
 # License
 
 Copyright 2016 Allan Espinosa
