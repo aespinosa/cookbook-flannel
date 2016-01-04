@@ -3,3 +3,4 @@ version '0.0.1'
 
 depends 'flannel'
 depends 'etcd'
+depends 'docker'

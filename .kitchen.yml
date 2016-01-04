@@ -12,3 +12,6 @@ suites:
   - name: service
     run_list:
       - flannel_test::service
+  - name: docker_integration
+    run_list:
+      - flannel_test::docker
