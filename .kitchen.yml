@@ -8,4 +8,7 @@ platforms:
 suites:
   - name: installation
     run_list:
-      - flannel_test::default
+      - flannel_test::installation
+  - name: service
+    run_list:
+      - flannel_test::service
