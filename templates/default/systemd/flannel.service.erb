@@ -5,5 +5,8 @@ After=network.target
 
 [Service]
 Type=notify
-ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config <%= @config.to_json %>
-ExecStart=/usr/sbin/flanneld
+ExecStartPre=<%= @etcdctl_command %>
+ExecStart=<%= @flanneld_command %>
+
+[Install]
+WantedBy=multi-user.target

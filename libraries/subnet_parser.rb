@@ -2,7 +2,7 @@ module FlannelCookbook
   module SubnetParser
 
     def load_subnetfile
-      File.read '/run/flannel/subnet.env'
+      File.read subnet_file
     end
 
     def subnetfile_subnet
