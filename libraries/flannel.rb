@@ -5,6 +5,9 @@ module FlannelCookbook
 
     default_action :create
 
+    # Reference: https://github.com/coreos/flannel#configuration
+    property :configuration, Hash, default: { 'Network' => '10.0.0.1/8' }
+
     IPV4_ADDR ||= /((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])/
 
     # Reference: https://github.com/coreos/flannel#key-command-line-options
@@ -115,8 +118,7 @@ module FlannelCookbook
     end
 
     def etcdctl_command
-      config = { 'Network' => '10.0.0.0/8' }
-      "#{etcdctl_bin} set #{etcd_prefix} '#{config.to_json}'"
+      "#{etcdctl_bin} set #{etcd_prefix} '#{configuration.to_json}'"
     end
   end
 end
