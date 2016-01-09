@@ -31,6 +31,27 @@ Downloads pre-compiled Go binaries of flanneld onto disk.
   disk.
 * The `:start` action runs flanneld as a systemd service
 
+It has the following properties corresponding to
+[flannel's commandline options](https://github.com/coreos/flannel#key-command-line-options)
+
+* `public_ip`
+* `etcd_endpoints`
+* `etcd_prefix`
+* `etcd_keyfile`
+* `etcd_cafile`
+* `iface`
+* `subnet_file`
+* `ip_masq`
+* `listen`
+* `remote`
+* `remote_keyfile`
+* `remote_certfile`
+* `networks`
+* `v` or `log_level`
+
+Another property called `config` corresponds to
+[flannel's etcd-stored configuration](https://github.com/coreos/flannel#configuration)
+
 ## Helper
 
 The [libraries/subnet_parser.rb](libraries/subnet_parser.rb) file extends the flannel_service resource to read
