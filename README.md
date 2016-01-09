@@ -16,7 +16,7 @@ Tested on the following platforms with test-kitchen:
 
 ## Usage
 
-* Add `depends 'flannel', '~> 0.1.0'` to your cookbook's `metadata.rb`.
+* Add `depends 'flannel', '~> 0.3'` to your cookbook's `metadata.rb`.
 * Use the resources shipped in this cookbook.
 
 # Custom Resources
