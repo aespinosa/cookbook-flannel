@@ -1,5 +1,5 @@
 module FlannelCookbook
-  class FlannelService < Chef::Resource
+  class Resource < Chef::Resource
     resource_name :flannel_service
     provides :flannel_service
 
@@ -18,7 +18,7 @@ module FlannelCookbook
     property :etcd_cafile, String
     property :iface, String
     property :subnet_file, String, default: '/run/flannel/subnet.env'
-    property :ip_masq, [true, false]
+    property :ip_masq, [true, false], default: false
     property :listen, String
     property :remote, String
     property :remote_keyfile, String
