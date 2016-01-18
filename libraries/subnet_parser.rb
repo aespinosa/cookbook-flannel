@@ -1,6 +1,5 @@
 module FlannelCookbook
   module SubnetParser
-
     def load_subnetfile
       File.read subnet_file
     end
