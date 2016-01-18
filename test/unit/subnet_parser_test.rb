@@ -16,12 +16,12 @@ end
 
 class SubnetParserTest < Minitest::Test
   def flannel_resource(options = { subnet: '10.0.34.1/24', mtu: '1472' })
-    unless @flannel_resource
+    if @flannel_resource
+      @flannel_resource
+    else
       @flannel_resource = OpenStruct.new options
       @flannel_resource.extend FlannelCookbook::SubnetParser
       @flannel_resource.extend FakeSubnetfile
-    else
-      @flannel_resource
     end
   end
 
