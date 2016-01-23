@@ -24,6 +24,12 @@ end
 
 class CreateTest < Minitest::Test
 
+  def assert_creates(resource_collection, resource_name)
+    resource = resource_collection.find resource_name
+    assert_equal [:create], resource.action,
+        "#{resource_name} has the wrong action"
+  end
+
   def provider
     if @provider
       @provider
@@ -36,11 +42,15 @@ class CreateTest < Minitest::Test
       end
       @provider = flannel.provider_for_action(:create)
     end
+  end
 
+  def inline_resources
+    provider.inline_resources
   end
 
   def test_downloads_the_tarball
     provider.action_create
-    assert_includes provider.inline_resources.keys, 'remote_file[flannel tarball]' 
+    assert_creates provider.inline_resources, 'remote_file[flannel tarball]'
+  end
   end
 end
