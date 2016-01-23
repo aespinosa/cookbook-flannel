@@ -1,4 +1,6 @@
 module FlannelCookbook
+  # Utilities for inspecting the environment of the converged
+  # flannel_service[] resource
   module SubnetParser
     def load_subnetfile
       File.read subnet_file

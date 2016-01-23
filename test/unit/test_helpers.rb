@@ -1,3 +1,5 @@
+require 'chef'
+
 require 'simplecov'
 require 'minitest/autorun'
 

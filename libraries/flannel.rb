@@ -1,4 +1,5 @@
 module FlannelCookbook
+  # flannel_resource
   class Resource < Chef::Resource
     resource_name :flannel_service
     provides :flannel_service
@@ -27,10 +28,9 @@ module FlannelCookbook
     property :networks, [String, Array]
     property :log_level, [0, 1, 2], default: 0
 
-    alias_method :v, :log_level
+    alias v log_level
 
     action :create do
-
       remote_file 'flannel tarball' do
         path tarball_path
         source 'https://github.com/coreos/flannel/releases/download/v0.5.5'\
