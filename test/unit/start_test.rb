@@ -35,14 +35,17 @@ class StartTest < Minitest::Test
 
   def test_passes_flanneld_command_to_the_systemd_unit
     provider.action_start
-    systemd_unit = provider.inline_resources.find 'template[/etc/systemd/system/flannel-foo.service]'
+    systemd_unit = provider.inline_resources.find 'template[/etc/systemd/'\
+        'system/flannel-foo.service]'
+    
     command = systemd_unit.variables[:flanneld_command]
     assert_equal 'fake flanneld command', command
   end
 
   def test_passes_etcd_settings_to_the_systemd_unit
     provider.action_start
-    systemd_unit = provider.inline_resources.find 'template[/etc/systemd/system/flannel-foo.service]'
+    systemd_unit = provider.inline_resources.find 'template[/etc/systemd/'\
+        'system/flannel-foo.service]'
     command = systemd_unit.variables[:etcdctl_command]
     assert_equal 'fake etcdctl command', command
   end
