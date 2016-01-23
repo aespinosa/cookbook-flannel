@@ -6,7 +6,6 @@ require 'minitest/autorun'
 
 require 'flannel'
 
-
 module ProviderInspection
   def compile_and_converge_action(&block)
     old_run_context = @run_context
@@ -52,5 +51,12 @@ class CreateTest < Minitest::Test
     provider.action_create
     assert_creates provider.inline_resources, 'remote_file[flannel tarball]'
   end
+
+  def test_extracts_the_tarball_file
+    provider.action_create
+    extractor = inline_resources.find 'execute[extract flanneld]'
+    downloader = inline_resources.find 'remote_file[flannel tarball]'
+
+    assert_match downloader.path, extractor.command
   end
 end
