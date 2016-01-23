@@ -37,7 +37,7 @@ class StartTest < Minitest::Test
     provider.action_start
     systemd_unit = provider.inline_resources.find 'template[/etc/systemd/'\
         'system/flannel-foo.service]'
-    
+
     command = systemd_unit.variables[:flanneld_command]
     assert_equal 'fake flanneld command', command
   end

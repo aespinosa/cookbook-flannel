@@ -5,7 +5,6 @@ require_relative 'test_helpers'
 require 'flannel'
 
 class CreateTest < Minitest::Test
-
   def assert_creates(resource_collection, resource_name)
     resource = resource_collection.find resource_name
     assert_equal [:create], resource.action,

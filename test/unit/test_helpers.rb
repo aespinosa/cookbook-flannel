@@ -17,5 +17,3 @@ module ProviderInspection
     @inline_run_context.resource_collection
   end
 end
-
-
