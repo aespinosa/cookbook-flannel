@@ -1,5 +1,6 @@
 require 'chef'
 
+require 'simplecov'
 require 'minitest/autorun'
 
 require 'command_generators'
@@ -33,9 +34,8 @@ class FlanneldCommandTest < Minitest::Test
       etcd_cafile '/etc/some-ca-file.pem'
     end
     assert_match '--etcd-endpoints=http://127.0.0.1:4001 '\
-                 '--etcd-prefix=/another/prefix '\
-                 '--etcd-keyfile=/etc/keyfile.pem '\
-                 '--etcd-cafile=/etc/some-ca-file.pem',
+        '--etcd-prefix=/another/prefix --etcd-keyfile=/etc/keyfile.pem '\
+        '--etcd-cafile=/etc/some-ca-file.pem',
                  flannel_service.flanneld_command
   end
 
@@ -45,9 +45,8 @@ class FlanneldCommandTest < Minitest::Test
       remote_keyfile '/etc/keyfile.pem'
       remote_certfile '/etc/certfile.pem'
     end
-    assert_match '--remote=10.0.0.1:8888 '\
-                 '--remote-keyfile=/etc/keyfile.pem '\
-                 '--remote-certfile=/etc/certfile.pem',
+    assert_match '--remote=10.0.0.1:8888 --remote-keyfile=/etc/keyfile.pem '\
+        '--remote-certfile=/etc/certfile.pem',
                  flannel_service.flanneld_command
   end
 end
