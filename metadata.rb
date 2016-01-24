@@ -6,6 +6,6 @@ maintainer_email 'allan.espinosa@outlook.com'
 source_url 'https://github.com/aespinosa/cookbook-flannel'
 issues_url 'https://github.com/aespinosa/cookbook-flannel/issues'
 
-version '0.3.0'
+version '0.3.1'
 
 supports 'debian'
