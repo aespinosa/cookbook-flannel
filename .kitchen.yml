@@ -4,6 +4,8 @@ provisioner:
 
 platforms:
   - name: debian-8.4
+  - name: centos-7.2
+  - name: ubuntu-16.04
 
 suites:
   - name: installation

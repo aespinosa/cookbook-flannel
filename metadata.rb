@@ -8,4 +8,5 @@ issues_url 'https://github.com/aespinosa/cookbook-flannel/issues'
 
 version '0.3.1'
 
-supports 'debian'
+supports 'debian', '>= 8.0'
+supports 'centos', '>= 7.0'
