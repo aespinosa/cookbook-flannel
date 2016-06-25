@@ -1,3 +1,7 @@
+# 1.0.0
+
+* Move out etcd backend configuration to the `:configure` action
+
 # 0.3.1
 
 * Mostly test and tooling enhancement
