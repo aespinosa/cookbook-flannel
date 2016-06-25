@@ -3,5 +3,5 @@ etcd_service 'flannel' do
 end
 
 flannel_service 'default' do
-  action %w(create start)
+  action %w(create configure start)
 end

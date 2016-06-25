@@ -47,6 +47,6 @@ class StartTest < Minitest::Test
     systemd_unit = provider.inline_resources.find 'template[/etc/systemd/'\
         'system/flannel-foo.service]'
     command = systemd_unit.variables[:etcdctl_command]
-    assert_equal 'fake etcdctl command', command
+    assert_nil command
   end
 end

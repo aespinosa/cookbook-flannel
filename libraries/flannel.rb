@@ -1,3 +1,5 @@
+require_relative 'command_generators'
+
 module FlannelCookbook
   # flannel_resource
   class Resource < Chef::Resource
@@ -49,6 +51,13 @@ module FlannelCookbook
       end
     end
 
+    action :configure do
+      execute 'configure flannel' do
+        command etcdctl_command
+        action :run
+      end
+    end
+
     action :start do
       service_file = template "/etc/systemd/system/#{flannel_name}.service" do
         source 'systemd/flannel.service.erb'
@@ -56,8 +65,7 @@ module FlannelCookbook
         group 'root'
         cookbook 'flannel'
 
-        variables etcdctl_command: etcdctl_command,
-                  flanneld_command: flanneld_command
+        variables flanneld_command: flanneld_command
 
         action :create
 

@@ -5,7 +5,6 @@ After=network.target
 
 [Service]
 Type=notify
-ExecStartPre=<%= @etcdctl_command %>
 ExecStart=<%= @flanneld_command %>
 
 [Install]
