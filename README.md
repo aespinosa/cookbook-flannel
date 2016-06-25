@@ -12,7 +12,9 @@ This is a library cookbook that provides resources for setting up
 
 Tested on the following platforms with test-kitchen:
 
-* debian-8.2
+* debian-8.4
+* centos-7.2
+* ubuntu-16.04
 
 ## Usage
 
@@ -29,6 +31,8 @@ Downloads pre-compiled Go binaries of flanneld onto disk.
 
 * The `:create` action downloads the pre-compiled go binary of flanneld onto
   disk.
+* The `:configure` action connects to etcd and loads the flanneld configuration to
+  it.
 * The `:start` action runs flanneld as a systemd service
 
 It has the following properties corresponding to
