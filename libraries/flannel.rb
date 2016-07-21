@@ -31,6 +31,7 @@ module FlannelCookbook
     property :remote_certfile, String
     property :networks, [String, Array]
     property :log_level, [0, 1, 2], default: 0
+    property :etcdctl_options, [String, nil], default: nil
 
     alias v log_level
 

@@ -77,8 +77,16 @@ module FlannelCookbook
       '/usr/bin/etcdctl'
     end
 
+    def etcdctl_opts
+      if etcdctl_options
+        " #{etcdctl_options}"
+      else
+        ""
+      end
+    end
+
     def etcdctl_command
-      "#{etcdctl_bin} set #{etcd_prefix} '#{configuration.to_json}'"
+      "#{etcdctl_bin}#{etcdctl_opts} set #{etcd_prefix} '#{configuration.to_json}'"
     end
   end
 end
