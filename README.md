@@ -42,6 +42,7 @@ It has the following properties corresponding to
 * `etcd_endpoints`
 * `etcd_prefix`
 * `etcd_keyfile`
+* `etcd_certfile`
 * `etcd_cafile`
 * `iface`
 * `subnet_file`

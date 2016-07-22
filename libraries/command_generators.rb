@@ -8,6 +8,7 @@ module FlannelCookbook
     def flanneld_etcd_authentication_opts
       opts = []
       opts << "--etcd-keyfile=#{etcd_keyfile}" unless etcd_keyfile.nil?
+      opts << "--etcd-certfile=#{etcd_certfile}" unless etcd_certfile.nil?
       opts << "--etcd-cafile=#{etcd_cafile}" unless etcd_cafile.nil?
       opts
     end

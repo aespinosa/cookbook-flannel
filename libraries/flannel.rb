@@ -21,6 +21,7 @@ module FlannelCookbook
     property :etcd_endpoints, String
     property :etcd_prefix, String, default: '/coreos.com/network/config'
     property :etcd_keyfile, String
+    property :etcd_certfile, String
     property :etcd_cafile, String
     property :iface, String
     property :subnet_file, String, default: '/run/flannel/subnet.env'
