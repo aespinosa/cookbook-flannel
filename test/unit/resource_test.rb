@@ -35,6 +35,14 @@ class ResourceTest < Minitest::Test
     assert_nil flannel_service.etcd_keyfile
   end
 
+  def test_default_etcd_certfile_is_nil
+    assert_nil flannel_service.etcd_certfile
+  end
+
+  def test_default_etcd_cafile_is_nil
+    assert_nil flannel_service.etcd_cafile
+  end
+
   def test_default_iface_is_nil
     assert_nil flannel_service.iface
   end
