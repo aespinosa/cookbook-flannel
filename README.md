@@ -57,12 +57,14 @@ It has the following properties corresponding to
 Another property called `config` corresponds to
 [flannel's etcd-stored configuration](https://github.com/coreos/flannel#configuration)
 
-Additionally, if you are using TLS with etcd, you can pass extra options to the etcdctl tool using the `etcdctl_options` property
+Additionally, if you are using TLS with etcd, you can pass extra options to the
+etcdctl tool using the `etcdctl_options` property
 
 ## Helper
 
-The [libraries/subnet_parser.rb](libraries/subnet_parser.rb) file extends the flannel_service resource to read
-and parse the subnet file.  An example approach on integrating with the docker cookbook
+The [libraries/subnet_parser.rb](libraries/subnet_parser.rb) file extends the
+flannel_service resource to read and parse the subnet file.  An example
+approach on integrating with the docker cookbook
 is found in
 [test/cookbooks/flannel_test/recipes/docker.rb](test/cookbooks/flannel_test/recipes/docker.rb).
 
