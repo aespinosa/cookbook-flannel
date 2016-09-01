@@ -36,4 +36,11 @@ class ConfigureTest < Minitest::Test
     command = etcdctl.command
     assert_equal 'fake etcdctl command', command
   end
+
+  def test_etcdctl_parameters_are_passed_to_etcdctl
+    flannel = FlannelCookbook::Resource.new 'default'
+    flannel.etcdctl_options 'any string option'
+
+    assert_match '/usr/bin/etcdctl any string option', flannel.etcdctl_command
+  end
 end
