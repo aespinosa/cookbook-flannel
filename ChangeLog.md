@@ -1,3 +1,7 @@
+# 1.1.0
+
+* Add etcdctl_options as a resource parameter
+
 # 1.0.0
 
 * Move out etcd backend configuration to the `:configure` action
