@@ -29,7 +29,6 @@ class ConfigureTest < Minitest::Test
     end
   end
 
-
   def test_passes_etcd_settings_to_etcdctl
     provider.action_configure
     etcdctl = provider.inline_resources.find 'execute[configure flannel]'
