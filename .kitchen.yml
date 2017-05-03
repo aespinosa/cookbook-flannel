@@ -3,7 +3,7 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: debian-8.6
+  - name: debian-8.7
   - name: centos-7.2
   - name: ubuntu-16.04
 
